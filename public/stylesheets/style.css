@@ -1,54 +1,87 @@
+/*Code by Sam Lindsey, 07/22/2020*/
+
+/*With help from:
+ https://www.w3schools.com/
+ https://www.youtube.com/watch?v=oT2HOw3fWp4&list=PL4cUxeGkcC9jpvoYriLI0bY8DOgWZfi6u&index=3
+ https://developer.mongodb.com/quickstart/node-crud-tutorial#node-tutorial-read
+ https://docs.mongodb.com/manual/mongo/
+ https://www.youtube.com/watch?v=ZKwrOXl5TDI
+ https://makeawebsitehub.com/host-website-computer/
+ https://stackoverflow.com/questions/24582338/how-can-i-include-css-files-using-node-express-and-ejs
+ https://github.com/mschwarzmueller/nodejs-basics-tutorial/blob/master/09-mongodb/views/index.hbs
+ https://stackoverflow.com/questions/48150072/fetching-data-from-mongodb-and-displaying-on-html
+ https://www.thesitewizard.com/css/make-table-cells-same-size.shtml#:~:text=The%20CSS%20to%20make%20all,in%20width%20is%20as%20follows.&text=The%20table%2Dlayout%3A%20fixed%3B,%2C%20if%20you%20have%20them).
+ https://www.google.com/search?q=hex+color+picker&oq=hex+color+picker&aqs=chrome..69i57j0l7.2709j0j7&sourceid=chrome&ie=UTF-8
+ https://css-tricks.com/snippets/css/centering-a-website/
+ https://stackoverflow.com/questions/9114664/spacing-between-elements
+ https://www.websitebuilderexpert.com/hosting-websites/
+ https://zellwk.com/blog/local-mongodb/#:~:text=To%20connect%20to%20your%20local,databases%20in%20your%20local%20MongoDB.
+
+ And code from:
+ https://github.com/mschwarzmueller
+ https://www.w3schools.com/howto/howto_js_sort_table.asp
+ as well as the default included files that come with an express project in Idea
+
+ */
+
+
+/*Style the entire body of the website */
 body {
-  padding: 50px;
-  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #fcf0cc;
-  max-wdith:500px;
-  margin: 0 auto;
-  text-align: center;
+    padding: 50px;
+    font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #fcf0cc;
+    max-wdith: 500px;
+    margin: 0 auto;
+    text-align: center;
 
 }
 
-/*a {*/
-/*  color: #00B7FF;*/
-/*}*/
-
-
-table, th, td{
-  border: 1px solid white;
-  width:80%;
-  margin: auto;
-  text-align: left;
+/*Table styling*/
+table, th, td {
+    border: 1px solid white;
+    width: 80%;
+    margin: auto;
+    text-align: left;
 }
 
-td, th{
-  width: 25% ;
+td, th {
+    width: 25%;
 }
 
-th{
-  background-color:#296ecf;
-  color: white;
+th {
+    background-color: #296ecf;
+    color: white;
 }
-div{
-  margin-left: 20px;
-  margin-right: 10px;
-  padding: 15px;
-  float:left;
-  border: 1px solid blue;
-  background-color: limegreen;
-  width: 20%;
-  color:white;
-}
-tr:nth-child(odd) {background-color: #d8e2f0;}
-tr:nth-child(even) {background-color: #e4e8ed;}
 
+tr:nth-child(odd) {
+    background-color: #d8e2f0;
+}
+
+tr:nth-child(even) {
+    background-color: #e4e8ed;
+}
+
+/*Used to style divs around user input sections*/
+div {
+    margin-left: 20px;
+    margin-right: 10px;
+    padding: 15px;
+    float: left;
+    border: 1px solid blue;
+    background-color: limegreen;
+    width: 20%;
+    color: white;
+}
+
+/*Style all buttons on webpage*/
 button {
-  width:20%;
-  background-color: red;
-  border: 2px solid blue;
-  color: white;
-  padding: 10px ;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+    width: 20%;
+    background-color: red;
+    border: 2px solid blue;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }

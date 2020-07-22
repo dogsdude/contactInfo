@@ -1,3 +1,27 @@
+<!--Code by Sam Lindsey, 07/22/2020*/-->
+
+<!--With help from:-->
+<!--https://www.w3schools.com/-->
+<!--https://www.youtube.com/watch?v=oT2HOw3fWp4&list=PL4cUxeGkcC9jpvoYriLI0bY8DOgWZfi6u&index=3-->
+<!--https://developer.mongodb.com/quickstart/node-crud-tutorial#node-tutorial-read-->
+<!--https://docs.mongodb.com/manual/mongo/-->
+<!--https://www.youtube.com/watch?v=ZKwrOXl5TDI-->
+<!--https://makeawebsitehub.com/host-website-computer/-->
+<!--https://stackoverflow.com/questions/24582338/how-can-i-include-css-files-using-node-express-and-ejs-->
+<!--https://github.com/mschwarzmueller/nodejs-basics-tutorial/blob/master/09-mongodb/views/index.hbs-->
+<!--https://stackoverflow.com/questions/48150072/fetching-data-from-mongodb-and-displaying-on-html-->
+<!--https://www.thesitewizard.com/css/make-table-cells-same-size.shtml#:~:text=The%20CSS%20to%20make%20all,in%20width%20is%20as%20follows.&text=The%20table%2Dlayout%3A%20fixed%3B,%2C%20if%20you%20have%20them).-->
+<!--https://www.google.com/search?q=hex+color+picker&oq=hex+color+picker&aqs=chrome..69i57j0l7.2709j0j7&sourceid=chrome&ie=UTF-8-->
+<!--https://css-tricks.com/snippets/css/centering-a-website/-->
+<!--https://stackoverflow.com/questions/9114664/spacing-between-elements-->
+<!--https://www.websitebuilderexpert.com/hosting-websites/-->
+<!--https://zellwk.com/blog/local-mongodb/#:~:text=To%20connect%20to%20your%20local,databases%20in%20your%20local%20MongoDB.-->
+
+<!--And code from:-->
+<!--https://github.com/mschwarzmueller-->
+<!--https://www.w3schools.com/howto/howto_js_sort_table.asp-->
+<!--as well as the default included files that come with an express project in Idea-->
+
 <!DOCTYPE html>
 <html>
 
@@ -7,16 +31,12 @@
 
 <body>
 
+<!--Button to load table-->
 <a href="/get-data">
-    <button id="firstNamesButton" type="button"> Load Table!</button>
+    <button id="loadButton" type="button"> Load Table!</button>
 </a>
 
 <br> <br>
-
-<!-- TODO: Add JavaScript to make these buttons work -->
-<a href="/get-first">
-    <button id="firstNamesButton" type="button"> First Name</button>
-</a>
 
 
 <!-- Code below does no function... Tried sorting via internal JavaScript. -->
@@ -60,19 +80,29 @@
 
 <!--</script> -->
 
+<!-- Button to sort by first name-->
+<a href="/get-first">
+    <button id="firstNamesButton" type="button"> First Name</button>
+</a>
+
+<!-- Button to sort by last name-->
 <a href="/get-last">
     <button id="lastNamesButton" type="button"> Last Name</button>
 </a>
+
+<!-- Button to sort by address-->
 <a href="/get-address">
     <button id="addressButton" type="button"> Address</button>
 </a>
+
+<!-- Button to sort by phone number-->
 <a href="/get-phoneNumber">
     <button id="phoneButton" type="button"> Phone Number</button>
 </a>
 
 <br><br>
 
-<!-- TODO: Popuplate Table -->
+<!-- Create and populate the table with data from mongoDB-->
 <table id="contactTable">
     <thead>
     <tr>
@@ -96,18 +126,21 @@
 
 <br>
 
-<!-- TODO:Filter only the input field to the table-->
+<!-- Filter by user input of first name-->
 <div>
     <label for="firstName"> First Name: </label>
     <input type="text" id="firstNameInput" name='firstName' onkeyup="showFirst()" placeholder="Input first name?">
 </div>
 
+<!-- Filter by user input of last name-->
 <div>
     <label for="lastName"> Last Name: </label>
     <input type="text" id="lastNameInput" name='lastName' onkeyup="showLast()" placeholder="Input last name?">
 </div>
 
+<!-- JavaScript to run the input fields that filter by first and last name-->
 <script>
+
     //With for loops
     function showFirst() {
         var input, filter, table, tr, td;
@@ -119,7 +152,7 @@
         for (var i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td")[0];
             if (td) {
-               var txtValue = td.textContent || td.innerText;
+                var txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     tr[i].style.display = "";
                 } else {
@@ -127,7 +160,6 @@
                 }
             }
         }
-        console.log(input.toString());
     }
 
     function showLast() {
@@ -148,12 +180,10 @@
                 }
             }
         }
-        console.log(input.toString());
     }
 
     // Tried implementation without for loop... You would build your array from the table
-    // and then call newArray.filter(input) and output the results. Always easier said then done.
-
+    // and then call newArray.filter(input) and output the results.
     // function onlyFirst() {
     //     var input, filter, table, tr, trArray, td;
     //     console.log("Filter by first");

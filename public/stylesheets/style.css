@@ -1,0 +1,54 @@
+body {
+  padding: 50px;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #fcf0cc;
+  max-wdith:500px;
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+/*a {*/
+/*  color: #00B7FF;*/
+/*}*/
+
+
+table, th, td{
+  border: 1px solid white;
+  width:80%;
+  margin: auto;
+  text-align: left;
+}
+
+td, th{
+  width: 25% ;
+}
+
+th{
+  background-color:#296ecf;
+  color: white;
+}
+div{
+  margin-left: 20px;
+  margin-right: 10px;
+  padding: 15px;
+  float:left;
+  border: 1px solid blue;
+  background-color: limegreen;
+  width: 20%;
+  color:white;
+}
+tr:nth-child(odd) {background-color: #d8e2f0;}
+tr:nth-child(even) {background-color: #e4e8ed;}
+
+button {
+  width:20%;
+  background-color: red;
+  border: 2px solid blue;
+  color: white;
+  padding: 10px ;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}

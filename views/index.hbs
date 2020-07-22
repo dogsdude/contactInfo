@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ATA-Project</title>
+</head>
+
+<body>
+
+<a href="/get-data">
+    <button id="firstNamesButton" type="button"> Load Table!</button>
+</a>
+
+<br> <br>
+
+<!-- TODO: Add JavaScript to make these buttons work -->
+<a href="/get-first">
+    <button id="firstNamesButton" type="button"> First Name</button>
+</a>
+
+
+<!-- Code below does no function... Tried sorting via internal JavaScript. -->
+<!--<script>-->
+
+<!--    var contact = {-->
+<!--        firstName:null,-->
+<!--        lastName:null,-->
+<!--        streetAddress:null,-->
+<!--        phoneNumber:null-->
+
+<!--    }-->
+<!--    var firstNames = [];-->
+<!--    var lastNames = [];-->
+<!--    var streetAddresses = [];-->
+<!--    var phoneNumbers = [];-->
+<!--    let i =0;-->
+        <!--        {{# each items}}-->
+<!--            firstNames[i] = "{{firstName}}";-->
+<!--            lastNames[i] = "{{lastName}}";-->
+<!--            streetAddresses[i] = "{{streetAddress}}";-->
+<!--            phoneNumbers[i] = "{{phoneNumber}}";-->
+<!--            i++;-->
+        <!--        {{/each}}-->
+
+
+<!--    function firstNamesSort() {-->
+<!--        document.getElementById("firstNamesButton").innerHTML = "Sorted!";-->
+<!--        var table = document.getElementById("contactTable");-->
+<!--        console.log(firstNames);-->
+<!--        firstNames.sort();-->
+<!--        console.log(firstNames);-->
+<!--    }-->
+
+<!--var firstNames = new Array(20);-->
+<!--console.log("hello");-->
+<!--for (let i = 0; i < 20; i++) {-->
+<!--    firstNames[i] = {{this.firstName}};-->
+<!--    console.log(firstNames);-->
+<!--}-->
+
+<!--</script> -->
+
+<a href="/get-last">
+    <button id="lastNamesButton" type="button"> Last Name</button>
+</a>
+<a href="/get-address">
+    <button id="addressButton" type="button"> Address</button>
+</a>
+<a href="/get-phoneNumber">
+    <button id="phoneButton" type="button"> Phone Number</button>
+</a>
+
+<br><br>
+
+<!-- TODO: Popuplate Table -->
+<table id="contactTable">
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Phone Number</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{# each items}}
+        <tr>
+            <td> {{this.firstName}} </td>
+            <td> {{this.lastName}} </td>
+            <td> {{this.streetAddress}} </td>
+            <td> {{this.phoneNumber}} </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
+
+<br>
+
+<!-- TODO:Filter only the input field to the table-->
+<div>
+    <label for="firstName"> First Name: </label>
+    <input type="text" id="firstNameInput" name='firstName' onkeyup="showFirst()" placeholder="Input first name?">
+</div>
+
+<div>
+    <label for="lastName"> Last Name: </label>
+    <input type="text" id="lastNameInput" name='lastName' onkeyup="showLast()" placeholder="Input last name?">
+</div>
+
+<script>
+    //With for loops
+    function showFirst() {
+        var input, filter, table, tr, td;
+        console.log("Filter by first");
+        input = document.getElementById("firstNameInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("contactTable");
+        tr = table.getElementsByTagName("tr");
+        for (var i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+               var txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+        console.log(input.toString());
+    }
+
+    function showLast() {
+        var input, filter, table, tr, td;
+        console.log("Filter by last");
+        input = document.getElementById("lastNameInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("contactTable");
+        tr = table.getElementsByTagName("tr");
+        for (var i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                var txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+        console.log(input.toString());
+    }
+
+    // Tried implementation without for loop... You would build your array from the table
+    // and then call newArray.filter(input) and output the results. Always easier said then done.
+
+    // function onlyFirst() {
+    //     var input, filter, table, tr, trArray, td;
+    //     console.log("Filter by first");
+    //     input = document.getElementById("firstNameInput");
+    //     filter = input.value.toUpperCase();
+    //     table = document.getElementById("contactTable");
+    //     tr = table.getElementsByTagName("tr");
+    //     trArray = [];
+    //     for(var i; i<20; i++){
+    //         trArray[i] = tr;
+    //     }
+    //
+    //    var filteredArray = trArray.filter(document.getElementById('firstNameInput'));
+    //
+    //     for(var i; i<20;i++){
+    //         filteredArray[i].style.display="";
+    //     }
+    //
+    // }
+
+</script>
+
+</body>
+</html>
+
